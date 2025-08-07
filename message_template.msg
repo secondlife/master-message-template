@@ -567,6 +567,11 @@ version 2.0
 // PlacesQuery
 // Used for getting a list of places for the group land panel
 // and the user land holdings panel.  NOT for the directory.
+// 
+// The dataserver now implements the "/agent/<agent-id>/owned-land" 
+// endpoint as a replacement for PlacesQuery and PlacesReply.  
+// This has not yet been exposed in the viewer through a capability... 
+// but this message's days are numbered.
 {
     PlacesQuery Low 29 NotTrusted Zerocoded
     {
@@ -7497,9 +7502,12 @@ version 2.0
     }
 }
 
+// ScriptDataRequest and ScriptDataReply are no longer used in the
+// simulator or the dataserver. Please see "/region/<region-id>/data-request"
+// in llscript_dataserver.cpp for the HTTP endpoint.
 // Script on simulator asks dataserver for information
 {
-    ScriptDataRequest Low 337 Trusted Unencoded
+    ScriptDataRequest Low 337 Trusted Unencoded UDPDeprecated
     {
         DataBlock Variable
         {   Hash        U64         }
@@ -7510,7 +7518,7 @@ version 2.0
 
 // Data server responds with data
 {
-    ScriptDataReply Low 338 Trusted Unencoded
+    ScriptDataReply Low 338 Trusted Unencoded UDPDeprecated
     {
         DataBlock Variable
         {   Hash    U64         }
