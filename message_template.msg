@@ -6825,7 +6825,6 @@ version 2.0
     }
     {
         NewScriptInfo Variable
-        {   Type            U8          }
         {   TemplateID      LLUUID      }
     }
 }
